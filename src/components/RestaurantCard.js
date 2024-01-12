@@ -7,11 +7,11 @@ const RestaurantCard = ({
   areaName,
   costForTwo,
   avgRating,
-  sla
+  sla,
 }) => {
   return (
     <div className="card">
-      <img src={CDN_URL + cloudinaryImageId} />
+      <img alt="logo" src={CDN_URL + cloudinaryImageId} />
       <div className="res-content">
         <h2>{name}</h2>
         <br />

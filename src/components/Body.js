@@ -1,8 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { MAIN_API } from "../utils/constants";
+import { Link } from "react-router-dom";
 
-const Body = () => {
+
+export const Body = () => {
   // Local State variable --> super power variable
 
   useEffect(() => {
@@ -10,9 +13,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.145923&lng=79.08762999999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(MAIN_API);
 
     const json = await data.json();
     // Optional chaining
@@ -21,7 +22,6 @@ const Body = () => {
         ?.restaurants || [];
     setListofRestaurants(restaurants);
     setFilteredReataurant(restaurants);
-    console.log(restaurants);
   };
 
   const [listofRestaurants, setListofRestaurants] = useState([]);
@@ -56,11 +56,14 @@ const Body = () => {
         </div>
         <div className="restaurant-list">
           {filteredReataurant.length > 0 ? (
-            filteredReataurant.map((restaurant) => {
-              return (
-                <RestaurantCard key={restaurant.info.id} {...restaurant.info} />
-              );
-            })
+            filteredReataurant.map((restaurant) => (
+              <Link
+                key={restaurant.info.id}
+                to={`/restaurants/${restaurant.info.id}`}
+              >
+                <RestaurantCard {...restaurant.info} />
+              </Link>
+            ))
           ) : (
             <p>No restaurants found.</p>
           )}

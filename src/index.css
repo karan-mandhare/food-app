@@ -5,7 +5,7 @@
 
 /* Header */
 .header {
-  background-color: #86B6F6;
+  background-color: #86b6f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,10 +46,12 @@
 .card {
   width: 250px;
   height: 400px;
+  color: black;
   border-radius: 15px;
   margin: 20px;
   border: 2px solid #eef0e5;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .card:hover {
   border: 2px solid black;
@@ -67,8 +69,9 @@
 .res-content {
   padding: 8px 25px;
   margin-top: 10px;
-  /* font-size: 17px; */
+  text-decoration: none;
 }
+
 .filter-btn {
   margin: 10px;
   cursor: pointer;
@@ -94,12 +97,12 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  font-family: "Codec cold",sans-serif;
+  font-family: "Codec cold", sans-serif;
   font-size: 16px;
   font-weight: 700;
   height: 54px;
   justify-content: center;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   line-height: 1;
   max-width: 100%;
   padding-left: 20px;
@@ -126,8 +129,8 @@
 }
 
 .button-75:hover span {
-  transform: scale(.9);
-  opacity: .75;
+  transform: scale(0.9);
+  opacity: 0.75;
 }
 
 @media screen and (max-width: 991px) {
@@ -141,15 +144,67 @@
   }
 }
 
-.search-box{
+.search-box {
   display: flex;
   margin: 20px 30px;
   height: 30px;
 }
-.search-box input{
+.search-box input {
   width: 200px;
 }
-.search-box button{
+.search-box button {
   width: 70px;
   cursor: pointer;
+}
+
+.menu {
+  width: 700px;
+  margin: 0 400px;
+  padding: 80px 30px;
+}
+.top-content {
+  line-height: 25px;
+}
+.top-content h1 {
+  margin-bottom: 20px;
+}
+#distance {
+  margin: 20px 0;
+}
+.top-content h3 {
+  margin: 20px 0;
+}
+.rec-list h2 {
+  margin: 20px 5px;
+  font-size: 30px;
+  text-shadow: 8px 8px 11px rgba(108, 158, 32, 0.8);
+}
+.rec-list p {
+  padding: 5px 0;
+}
+.rec-list ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+.item-container {
+  height: 200px;
+  position: relative;
+}
+.item-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-weight: bolder;
+}
+.item-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+.item-img img {
+  height: 100px;
+  width: 150px;
+  border-radius: 10px;
 }
