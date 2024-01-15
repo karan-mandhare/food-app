@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
   return (
     <div className="m-4 p-4 mx-80 text-start w-2/4">
       <div className="text-xl">
-        <h1 className="pt-4">{name}</h1>
+        <h1 className="pt-4 font-bold text-2xl">{name}</h1>
         <p>{Array.isArray(cuisines) ? cuisines.join(", ") : ""}</p>
         <p>{areaName}</p>
         <p className="pb-4">{expectationNotifiers[0].text}</p>
