@@ -25,30 +25,23 @@ class About extends React.Component {
     console.log("json", json);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     console.log("Component willUnmount");
   }
 
   render() {
-    const { name, location, avatar_url } = this.state.userInfo;
+    const { name, location, avatar_url, bio, created_at } = this.state.userInfo;
     // const { count, count2 } = this.state;
     return (
-      <>
-        {/* <h1>Count : {count}</h1>
-        <button
-          onClick={() => {
-            this.setState({
-              count: this.state.count + 1,
-            });
-          }}
-        >
-          Increase Number
-        </button> */}
-        {/* <h1>Count2 : {count2}</h1> */}
-        <img src={avatar_url} alt="" />
-        <h1>Name : {name}</h1>
-        <h1>Location : {location}</h1>
-      </>
+      <div className="m-20 flex justify-center">
+        <img className="w-[450px] h-[500px] rounded-3xl" src={avatar_url} alt="" />
+        <div className="text-5xl mx-10 pt-10">
+          <h1 className="pb-8">{name}</h1>
+          <h1 className="pb-8">{bio}</h1>
+          <h1 className="pb-8">Start from : {created_at}</h1>
+          <h1>Location : {location}</h1>
+        </div>
+      </div>
     );
   }
 }

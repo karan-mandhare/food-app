@@ -43,15 +43,18 @@ export const Body = () => {
   ) : (
     <>
       <div className="body">
-        <div className="filter">
-          <div className="search-box">
+        <div className="filter flex">
+          <div className="search p-4 m-4">
+                    
             <input
               type="text"
+              className="border-black"
               placeholder="search here...."
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
             <button
+              className="px-4 py-2 bg-green-100 m-4 rounded-lg"
               onClick={() => {
                 const filterdList = listofRestaurants.filter((res) =>
                   res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -63,7 +66,7 @@ export const Body = () => {
             </button>
           </div>
         </div>
-        <div className="restaurant-list">
+        <div className="flex flex-wrap mx-28">
           {filteredReataurant.length > 0 ? (
             filteredReataurant.map((restaurant) => (
               <Link

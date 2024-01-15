@@ -10,10 +10,14 @@ const RestaurantCard = ({
   sla,
 }) => {
   return (
-    <div className="card">
-      <img alt="logo" src={CDN_URL + cloudinaryImageId} />
+    <div className="w-[300px] h-[430px] m-4 p-2 rounded-md bg-neutral-200 hover:border-2">
+      <img
+        className="mb-2 w-72 rounded-md"
+        alt="logo"
+        src={CDN_URL + cloudinaryImageId}
+      />
       <div className="res-content">
-        <h2>{name}</h2>
+        <h2 className="text-xl font-bold pt-2">{name}</h2>
         <br />
         <p>{Array.isArray(cuisines) ? cuisines.join(", ") : ""}</p>
         <h4>{areaName}</h4>
