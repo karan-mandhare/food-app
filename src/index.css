@@ -18,7 +18,7 @@
 }
 
 .nav-items {
-  margin-right: 40px;
+  margin-right: 20px;
   font-size: 25px;
   font-weight: bolder;
 }
@@ -30,7 +30,7 @@
   list-style-type: none;
 }
 .nav-items ul li {
-  padding: 0 60px;
+  padding: 0 30px;
   margin: 0 5px;
   cursor: pointer;
 }
@@ -69,9 +69,10 @@
 .res-content {
   padding: 8px 25px;
   margin-top: 10px;
+}
+.link-component {
   text-decoration: none;
 }
-
 .filter-btn {
   margin: 10px;
   cursor: pointer;

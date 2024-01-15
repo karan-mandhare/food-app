@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { MAIN_API } from "../utils/constants";
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Body = () => {
   // Local State variable --> super power variable
@@ -27,6 +27,15 @@ export const Body = () => {
   const [listofRestaurants, setListofRestaurants] = useState([]);
   const [filteredReataurant, setFilteredReataurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you`re offline!! Please check your internet connection.
+      </h1>
+    );
 
   // Conditional Rendering
   return listofRestaurants.length === 0 ? (
@@ -60,6 +69,7 @@ export const Body = () => {
               <Link
                 key={restaurant.info.id}
                 to={`/restaurants/${restaurant.info.id}`}
+                className="link-component"
               >
                 <RestaurantCard {...restaurant.info} />
               </Link>
