@@ -18,22 +18,22 @@ const Header = () => {
             <li className="px-4">
               Online Status : {onlineStatus ? "🟢" : "🔴"}
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/">Home</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/about">About Us</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/contact">Contact Us</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/grocery">Grocery</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/">Cart</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 hover:shadow-xl">
               <Link to="/login">
                 <button
                   className="button-75"
