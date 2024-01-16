@@ -21,12 +21,10 @@ class About extends React.Component {
     this.setState({
       userInfo: json,
     });
-
-    console.log("json", json);
   }
 
   componentWillUnmount() {
-    console.log("Component willUnmount");
+    // console.log("Component willUnmount");
   }
 
   render() {
@@ -34,7 +32,11 @@ class About extends React.Component {
     // const { count, count2 } = this.state;
     return (
       <div className="m-20 flex justify-center">
-        <img className="w-[450px] h-[500px] rounded-3xl" src={avatar_url} alt="" />
+        <img
+          className="w-[450px] h-[500px] rounded-3xl"
+          src={avatar_url}
+          alt=""
+        />
         <div className="text-5xl mx-10 pt-10">
           <h1 className="pb-8">{name}</h1>
           <h1 className="pb-8">{bio}</h1>

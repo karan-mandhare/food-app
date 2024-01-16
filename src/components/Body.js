@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { MAIN_API } from "../utils/constants";
@@ -7,6 +7,10 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Body = () => {
   // Local State variable --> super power variable
+
+  const [listofRestaurants, setListofRestaurants] = useState([]);
+  const [filteredReataurant, setFilteredReataurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -24,12 +28,8 @@ export const Body = () => {
     setFilteredReataurant(restaurants);
   };
 
-  const [listofRestaurants, setListofRestaurants] = useState([]);
-  const [filteredReataurant, setFilteredReataurant] = useState([]);
-  const [searchText, setSearchText] = useState("");
-
   const onlineStatus = useOnlineStatus();
-
+  const PromotedRestaurant = withPromotedLabel(RestaurantCard);
   if (onlineStatus === false)
     return (
       <h1>
@@ -45,7 +45,6 @@ export const Body = () => {
       <div className="body">
         <div className="filter flex">
           <div className="search p-4 m-4">
-                    
             <input
               type="text"
               className="border-black"
@@ -74,7 +73,11 @@ export const Body = () => {
                 to={`/restaurants/${restaurant.info.id}`}
                 className="link-component"
               >
-                <RestaurantCard {...restaurant.info} />
+                {restaurant.info.type === "T" ? (
+                  <PromotedRestaurant {...restaurant.info} />
+                ) : (
+                  <RestaurantCard {...restaurant.info} />
+                )}
               </Link>
             ))
           ) : (

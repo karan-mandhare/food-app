@@ -2,18 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-.item-container {
-  height: 150px;
-  position: relative;
-}
-.item-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 10px;
-}
-.item-img img {
-  height: 100px;
-  width: 150px;
-  border-radius: 10px;
-}
+

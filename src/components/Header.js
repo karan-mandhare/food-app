@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import logo from "../Images/logo-rmbg.png";
