@@ -7,11 +7,11 @@ import Login from "./components/Login";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Body from "./components/Body";
-import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart"
 
-
-const About = lazy(()=>import("./components/About"));
-const Grocery = lazy(()=>import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
+const Grocery = lazy(() => import("./components/Grocery"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 const appRouter = createBrowserRouter([
   {
@@ -24,7 +24,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <Suspense fallback={<h1>Loading....</h1>}><About name={"karan mandhare"} location={"umred"} /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <About name={"karan mandhare"} location={"umred"} />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
@@ -32,16 +36,27 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback=
-        {<h1>Loading...</h1>}><Grocery /></Suspense>
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

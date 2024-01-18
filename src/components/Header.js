@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import logo from "../Images/logo-rmbg.png";
+import UserContext from "../utils/UserContext"
+import { useSelector } from "react-redux";
+import cart from "../Images/cart.png";
 
 const Header = () => {
   const [btnstate, setBtnstate] = useState("LogIn");
+  const { loggedInUser } = useContext(UserContext);
+  console.log("loggedusercontext:", loggedInUser);
   const onlineStatus = useOnlineStatus();
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <>
       <div className="flex w-full justify-between bg-pink-200 shadow-lg">
@@ -30,7 +38,10 @@ const Header = () => {
               <Link to="/grocery">Grocery</Link>
             </li>
             <li className="px-4 hover:shadow-xl">
-              <Link to="/">Cart</Link>
+              <Link to="/cart" className="font-bold text-xl flex">
+                <img src={cart} alt="cart" className="w-8 mr-2" />
+                {cartItems.length > 0 ? cartItems.length : ""}
+              </Link>
             </li>
             <li className="px-4 hover:shadow-xl">
               <Link to="/login">
@@ -46,6 +57,11 @@ const Header = () => {
                 </button>
               </Link>
             </li>
+            {/* <li className="px-4 hover:shadow-xl">
+              <Link to="/">
+                <h1>{loggedInUser}</h1>
+              </Link>
+            </li> */}
           </ul>
         </div>
       </div>
